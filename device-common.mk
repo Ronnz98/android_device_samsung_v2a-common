@@ -21,14 +21,7 @@ DEVICE_PATH := device/samsung/v2a-common
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/overlay
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
-    device/samsung/v2a-common/overlay/lineage-sdk \
     device/samsung/v2a-common/overlay/hardware/samsung/AdvancedDisplay
-
-# Device uses high-density artwork where available
-PRODUCT_AAPT_CONFIG := xlarge
-PRODUCT_AAPT_PREF_CONFIG := xhdpi
-# A list of dpis to select prebuilt apk, in precedence order.
-PRODUCT_AAPT_PREBUILT_DPI := hdpi mdpi
 
 # AdvancedDisplay (MDNIE)
 PRODUCT_PACKAGES += \
@@ -57,7 +50,7 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/keylayout/sec_touchscreen.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/sec_touchscreen.kl
 
 # Properties
--include $(LOCAL_PATH)/system_prop.mk
+-include $(DEVICE_PATH)/system_prop.mk
 
 # Shims
 PRODUCT_PACKAGES += \
